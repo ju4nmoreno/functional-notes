@@ -39,7 +39,7 @@ a; // 6
 b; // 9
 ```
 
-### Side Effects
+##### Side Effects
 
 Side Effects:
 
@@ -82,7 +82,7 @@ rate = shipping_(12, 4, 5); // 57
 rate = shipping_(8, 4, 6); // 42
 ```
 
-### Pure Functions
+##### Pure Functions
 
 ```javascript
 const z = 1;
@@ -98,13 +98,13 @@ function addAnother(x, y) {
 addAnother(20, 21); // 42
 ```
 
-### Same Input, Same Output
+##### Same Input, Same Output
 
-### Function Purity: Level of Confidence
+##### Function Purity: Level of Confidence
 
-### Extracting Impurity
+##### Extracting Impurity
 
-### Containing Impurity
+##### Containing Impurity
 
 ## Closure
 
