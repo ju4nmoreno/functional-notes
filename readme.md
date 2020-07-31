@@ -106,7 +106,111 @@ addAnother(20, 21); // 42
 
 ##### Containing Impurity
 
+##### Function Arguments
+
+```javascript
+// unary
+function increment(x) {
+  return sum(x, 1);
+}
+// binary
+function sum(x, y) {
+  return x + y;
+}
+```
+
+##### Arguments Shape Adapters
+
+```javascript
+function unary(fn) {
+  return function one(arg) {
+    return fn(arg);
+  }
+}
+
+function binary(fn) {
+  return fucntion two(arg1, arg2) {
+    return fn(arg1, arg2);
+  }
+}
+
+function f(...args) {
+  retrn args:
+}
+
+var g = unary(f);
+var h = binary(f);
+
+g(1,2,3,4); // [1]
+h(1,2,3,4); // [2]
+```
+
+##### Point-Free
+
+Equational Reasoning
+
+```javascript
+// example 1
+getPerson(function onPerson(person) {
+  return renderPerson(person);
+});
+
+getPerson(renderPerson);
+```
+
+```javascript
+// example 2
+function not(fn) {
+  return function negated(...args) {
+    return !fn(...args);
+  };
+}
+
+function isOdd(v) {
+  return v % 2 == 1;
+}
+
+var isEven = not(isOdd);
+
+isEven(4); // true
+```
+
 ## Closure
+
+> Closure is when a function
+> "remembers" the variables around
+> it even then that function is
+> executed alsewhere.
+
+```javascript
+function makeCounter() {
+  var counter = 0;
+  return function increment() {
+    return ++counter;
+  };
+}
+
+var c = makeCounter();
+c(); // 1
+c(); // 2
+c(); // 3
+```
+
+```javascript
+function unary(fn) {
+  return function one(arg) {
+    return fn(arg);
+  };
+}
+```
+
+```javascript
+function addAnother(z) {
+  return addTwo(x,y) {
+    return x + y + z;
+  }
+}
+```
 
 ## Composition
 

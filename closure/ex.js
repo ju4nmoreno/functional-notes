@@ -1,18 +1,23 @@
-"use strict";
+'use strict';
 
 function strBuilder(str) {
-	return strBuilder;
+  return function next(_) {
+    if (typeof _ == 'string') {
+      return strBuilder(str + _);
+    }
+    return str;
+  };
 }
 
-var hello = strBuilder("Hello, ");
-var kyle = hello("Kyle");
-var susan = hello("Susan");
-var question = kyle("?")();
-var greeting = susan("!")();
+var hello = strBuilder('Hello, ');
+var kyle = hello('Kyle');
+var susan = hello('Susan');
+var question = kyle('?')();
+var greeting = susan('!')();
 
-console.log(strBuilder("Hello, ")("")("Kyle")(".")("")() === "Hello, Kyle.");
-console.log(hello() === "Hello, ");
-console.log(kyle() === "Hello, Kyle");
-console.log(susan() === "Hello, Susan");
-console.log(question === "Hello, Kyle?");
-console.log(greeting === "Hello, Susan!");
+console.log(strBuilder('Hello, ')('')('Kyle')('.')('')() === 'Hello, Kyle.');
+console.log(hello() === 'Hello, ');
+console.log(kyle() === 'Hello, Kyle');
+console.log(susan() === 'Hello, Susan');
+console.log(question === 'Hello, Kyle?');
+console.log(greeting === 'Hello, Susan!');
